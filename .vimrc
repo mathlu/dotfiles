@@ -21,7 +21,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'altercation/vim-colors-solarized'
 Bundle 'chase/vim-ansible-yaml'
