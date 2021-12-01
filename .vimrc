@@ -26,6 +26,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'altercation/vim-colors-solarized'
 Bundle 'chase/vim-ansible-yaml'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'hashivim/vim-terraform'
 "Plugin 'pearofducks/ansible-vim'
 
 "
