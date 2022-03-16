@@ -23,3 +23,12 @@ PS1=$PS1"└ \$\[\e[0m\] "
 
 # dircolors
 eval $(dircolors -b ~/.dir_colors)
+
+# Vim solarized8
+sh ~/.vim/bundle/vim-solarized8/scripts/solarized8.sh
+
+# Kubernetes aliases
+source <(kubectl completion bash)
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+complete -F __start_kubectl k
+export do="--dry-run=client -o yaml"

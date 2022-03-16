@@ -1,46 +1,32 @@
-set t_Co=256
 set nocompatible              " required
+set mouse=a
+
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-"
-" " alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'junegunn/goyo.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-scripts/vcscommand.vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'altercation/vim-colors-solarized'
-Bundle 'chase/vim-ansible-yaml'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'hashivim/vim-terraform'
-"Plugin 'pearofducks/ansible-vim'
+call plug#begin('~/.vim/plugged')
 
-"
-" " add all your plugins here (note older versions of Vundle
-" " used Bundle instead of Plugin)
-"
-" " ...
-"
-" " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Plugins go here
 
-set background=dark
-colorscheme solarized
+"Plug 'tmhedberg/SimpylFold'
+Plug 'junegunn/goyo.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-scripts/indentpython.vim'
+"Plug 'vim-scripts/vcscommand.vim'
+Plug 'nvie/vim-flake8'
+Plug 'vim-syntastic/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'lifepillar/vim-solarized8'
+"Bundle 'chase/vim-ansible-yaml'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'hashivim/vim-terraform'
+Plug 'christianrondeau/vim-base64'
+
+call plug#end()
+
 
 " Enable folding
 " set foldmethod=indent
@@ -57,5 +43,15 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 let python_highlight_all=1
 syntax on
+au BufNewFile,BufRead Jenkinsfile setf groovy
+
 set expandtab
 set shiftwidth=2
+set t_Co=256
+let g:solarized_termcolors=256
+colorscheme solarized8
+set background=dark
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+set conceallevel=2
