@@ -36,3 +36,27 @@ source <(kubectl completion bash)
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 complete -F __start_kubectl k
 export do="--dry-run=client -o yaml"
+
+# SSH Agent
+SHORT_HOST="${HOSTNAME/.*/}"
+ssh_env_cache="$HOME/.ssh/environment-$SHORT_HOST"
+
+# Oh-my-zsh compatible bash ssh-agent start script
+function _start_agent() {
+    if [[ -f "$ssh_env_cache" ]]; then
+        . "$ssh_env_cache" > /dev/null
+    fi
+
+    if [[ -S "$SSH_AUTH_SOCK" ]]; then
+      return 0
+    fi
+
+    echo "Starting ssh-agent ..."
+    ssh-agent -s | sed '/^echo/d' > "$ssh_env_cache"
+    chmod 600 "$ssh_env_cache"
+    . "$ssh_env_cache" > /dev/null
+}
+_start_agent
+
+unset ssh_env_cache
+unset -f _start_agent
